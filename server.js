@@ -1,8 +1,10 @@
 var http = require("http");
+var url = require("url");
 
 function start() {
     function onRequest(request, response) {
-        console.log("Request Received.");
+        var pathname = url.parse(request.url).pathname;
+        console.log("Request for" + pathname + " received");
         response.writeHead(200, { "Content-Tpe": "text / html" });
         response.write(" Hell World!");
         response.end();
